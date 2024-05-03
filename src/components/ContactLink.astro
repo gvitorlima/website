@@ -1,0 +1,33 @@
+---
+interface Props {
+  icon: "github" | "email" | "linkedIn";
+  label: string;
+  href: string;
+}
+
+const { icon, label, href } = Astro.props;
+
+const links = {
+  email: "/email.svg",
+  linkedIn: "/linkedin.svg",
+  github: "/github.svg",
+};
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer">
+  <img alt={label} src={links[icon]} height="32px" width="32px" />
+  <span>
+    {label}
+  </span>
+</a>
+
+<style>
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: hsl(258, 76%, 59%);
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+  }
+</style>

@@ -1,17 +1,48 @@
 ---
+import ContactLink from "../components/ContactLink.astro";
+import { WEBSITE_CONFIG } from "../config/website";
 import Layout from "../layouts/Layout.astro";
-import {Code} from "lucide-astro"
+import { Code } from "lucide-astro";
 ---
 
 <Layout>
-  <main class="grid place-items-center h-dvh w-full outline">
+  <main class="grid place-items-center min-h-dvh w-full outline">
     <div class="flex flex-col items-center">
       <h1
         class="inline-block bg-gradient-to-r from-violet-600 via-violet-400 to-violet-500 bg-clip-text text-5xl font-black text-transparent lg:text-6xl"
       >
         Gabriel Vitor <Code size={24} />
       </h1>
-      <p class="text-muted-foreground text-xl">Em breve</p>
+      <ul>
+        <li>
+          <ContactLink
+            href={WEBSITE_CONFIG.contact.github}
+            icon="github"
+            label="Github"
+          />
+        </li>
+        <li>
+          <ContactLink
+            href={WEBSITE_CONFIG.contact.email}
+            icon="email"
+            label="Email"
+          />
+        </li>
+        <li>
+          <ContactLink
+            href={WEBSITE_CONFIG.contact.linkedIn}
+            icon="linkedIn"
+            label="LinkedIn"
+          />
+        </li>
+      </ul>
     </div>
   </main>
 </Layout>
+
+<style>
+  ul {
+    display: flex;
+    gap: 1rem;
+  }
+</style>
